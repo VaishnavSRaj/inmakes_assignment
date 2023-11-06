@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'includes/nav.html' %}
+ {% if user.is_authenticated %}
+<div class="card" style="margin-top:25px;
+margin-bottom:25px;" >
+  <div class="card-header">
+   <h5> Registration</h5>
+<div id="alerts-container" style="display: none;">
+  {% include 'includes/alerts.html' %}
+</div>
+  </div>
+  <div class="card-body">
+    <form class="form-horizontal" method="post" >
+      {% csrf_token %}
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" class="form-control" id="dob" placeholder="Enter your date of birth" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="mailId">Email ID:</label>
+        <input type="email" class="form-control" id="mailId" placeholder="Enter your email ID" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <select class="form-control" id="department">
+          <option value="IT">Select Department</option>
+          <option value="Commerce">Commerce</option>
+          <option value="Science">Science</option>
+          <option value="Arts">Arts</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="courses">Courses:</label>
+        <select class="form-control" id="courses" data-dependent-select="#department">
+          <option value="">Select Department first</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="purpose">Purpose:</label>
+        <select class="form-control" id="purpose">
+          <option value="For Enquiry">For Enquiry</option>
+          <option value="Place Order">Place Order</option>
+          <option value="Return">Return</option>
+        </select>
+      </div>
+      <div class="form-group">
+  <label for="materialsProvide">Materials Provide:</label>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Debit Note Book">Note Book
+        </label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Pen"> Pen
+        </label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Exam Papers"> Exam Papers
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+<button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-secondary">
+  <a href="/logout" style="text-decoration: none; color: white;">Logout</a>
+</button>
+
+    </form>
+
+  </div>
+
+
+</div>
+{% else %}
+<h2>you must login first . <a style="text-decoration:None;" href="/login">Click here to login</a></h2>
+{% endif %}
+
+{% endblock %}

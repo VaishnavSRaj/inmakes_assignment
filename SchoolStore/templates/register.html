@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top: 100px;">
+    <h1>Register Page</h1>
+
+    <form action="register" method="post">
+        {% csrf_token %}
+
+        {{ form.username }}
+        {{ form.password }}
+        {{ form.confirm_password }}
+
+        <ul>
+            <li>{{ form.username.errors }}</li>
+        </ul>
+        <div>{{ form.non_field_errors }}</div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <input type="submit">
+        </div>
+    </form>
+</div>
+{% endblock %}
