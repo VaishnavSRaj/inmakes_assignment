@@ -7,11 +7,11 @@ margin-bottom:25px;" >
   <div class="card-header">
    <h5> Registration</h5>
 <div id="alerts-container" style="display: none;">
-  {% include 'includes/alerts.html' %}
+<!--  {% include 'includes/alerts.html' %}-->
 </div>
   </div>
   <div class="card-body">
-    <form class="form-horizontal" method="post" >
+    <form class="form-horizontal" method="post" action="/success" >
       {% csrf_token %}
 
 

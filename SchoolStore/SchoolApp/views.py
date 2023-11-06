@@ -56,3 +56,6 @@ def info(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def success(request):
+    return render(request , 'order_confirmed.html')
