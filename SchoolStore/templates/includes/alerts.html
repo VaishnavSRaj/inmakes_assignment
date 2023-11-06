@@ -2,7 +2,7 @@
   {% for message in messages %}
     <div id="message" class="container">
       <div {% if message.tags %} class="alert alert-dismissible alert-{{ message.tags }}"{% endif %} role="alert">
-        <button type="button" data-dismiss="alert" class="btn-close" aria-label="Close"></button>
+
         <a href="/" style="text-decoration: none;">Return to home page</a>
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
         {{ message }}

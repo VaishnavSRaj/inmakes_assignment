@@ -36,7 +36,7 @@ def register(request):
             user = CustomUser.objects.create_user(username=username, password=password)
             user.save()
             messages.success(request, 'Registration successfull')
-            return  redirect('login')
+            return redirect('login')
 
     else:
         form = UserRegistrationForm()
@@ -50,8 +50,8 @@ def register(request):
 def info(request):
     messages.success(request, 'Registration successfull')
 
-
     return render(request, 'registertion.html')
+
 
 def logout(request):
     auth.logout(request)

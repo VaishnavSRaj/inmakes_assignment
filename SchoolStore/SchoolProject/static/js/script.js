@@ -29,8 +29,22 @@
         });
 
 
- $(document).ready(function () {
-   $('#submit-button').click(function () {
+
+  $(document).ready(function () {
+  $('#submit-button').click(function (event) {
+    event.preventDefault()
+      $('#name').val('');
+      $('#dob').val('');
+      $('#age').val('');
+      $('#phoneNumber').val('');
+      $('#mailId').val('');
+      $('#address').val('');
+      $('#department').val('');
+      $('#courses').val('');
+      $('#purpose').val('');
+
+
+
     $('#alerts-container').show();
-    });
   });
+});
